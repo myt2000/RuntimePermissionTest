@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.contentValuesOf
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -47,9 +48,23 @@ class MainActivity : AppCompatActivity() {
         try {
             val intent = Intent(Intent.ACTION_CALL)
             intent.data = Uri.parse("tel:10086")
+//            val uri = Uri.parse("content://com.example.app.provider/table1")
+//            val cursor = contentResolver.query(uri, projection, selection, selectionArgs, sortOrder)
+//            while (cursor.moveToNext()){
+//                val column1 = cursor.getString(cursor.getColumnIndex("column1"))
+//                val column2 = cursor.getInt(cursor.getColumnIndex("column2"))
+//            }
+//            cursor.close()
+//            val values = contentValuesOf("column1" to "text", "column2" to 1)
+//            contentResolver.insert(uri,values)
+//            val values = contentValuesOf("column1" to "")
+//            contentResolver.update(uri, values, "column1 = ? and column2 = ?", arrayOf("text", "1"))
+//            contentResolver.delete(uri, "column2 = ?", arrayOf("1"))
             startActivity(intent)
         } catch (e: SecurityException) {
             e.printStackTrace()
         }
     }
+
+
 }
